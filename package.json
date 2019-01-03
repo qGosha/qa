@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_ENV=development || SET \"NODE_ENV=development\" && nodemon server.js",
-    "startbrk": "export NODE_ENV=development || SET \"NODE_ENV=development\" && node --inspect-brk server.js",
+    "start": "node server.js",
+    "startdev": "export NODE_ENV=development || SET \"NODE_ENV=development\" && nodemon server.js",
+    "startdevbrk": "export NODE_ENV=development || SET \"NODE_ENV=development\" && node --inspect-brk server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
