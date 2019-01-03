@@ -26,7 +26,7 @@ app.post('/api/startQa', async (req, res) => {
      }
    });
    if (results.data) {
-     await new Qa({ tasks: results.data.data, names }).save();
+     await new Qa({ tasks: results.data.data, names: req.body }).save();
      return res.send({
        success: true,
        results: results.data.data
@@ -44,6 +44,17 @@ app.post('/api/startQa', async (req, res) => {
    })
  }
 });
+
+// app.get('/test', async (req, res) => {
+//   var data = ['Kate', 'Igor'];
+//   var options = {
+//      'method' : 'post',
+//      'contentType': 'application/json',
+//      'payload' : JSON.stringify(data)
+//     }
+//
+//    await axios.post('http://localhost:5000/api/startQa', options);
+// })
 
 app.listen(port, () => {
   console.log('started on', port);
