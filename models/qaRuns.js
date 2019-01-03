@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const qaRuns = new Schema({
  tasks: { type: Array, default: [] },
+ names: { type: Array, default: [] },
  timestamp: { type: Date, default: Date.now }
 });
 

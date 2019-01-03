@@ -9,8 +9,10 @@ const mongoose = require('mongoose');
 const app = express();
 const port = process.env.PORT || 5000;
 const Qa = mongoose.model('qaRuns');
+app.use(bodyParser.json());
 
-app.get('/api/startQa', async (req, res) => {
+app.post('/api/startQa', async (req, res) => {
+  const names = req.body.payload;
   try {
    const results = await axios.get(process.env.workfrontUrl, {
      params: {
@@ -24,7 +26,7 @@ app.get('/api/startQa', async (req, res) => {
      }
    });
    if (results.data) {
-     await new Qa({ tasks: results.data.data }).save();
+     await new Qa({ tasks: results.data.data, names }).save();
      return res.send({
        success: true,
        results: results.data.data
