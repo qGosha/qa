@@ -21,7 +21,7 @@ app.post('/api/startQa', async (req, res) => {
       fields: '*',
       teamID: process.env.teamId,
       status: 'IQA',
-      plannedCompletionDate: new Date(new Date().setDate(10)),
+      plannedCompletionDate: new Date(new Date().setDate(8)),
       assignedToID_Mod: 'isnull'
      }
    });
